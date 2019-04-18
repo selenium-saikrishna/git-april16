@@ -1,0 +1,236 @@
+1 For the manager to remove a worker from the swarm(Drain)
+  docker node update --availability drian Worker1
+
+2 For the manager to make the worker rejoin the swarm(Active)
+  docker node update --availibility active Worker1
+
+3 For a worker to leave the swarm
+  Go to the worker machine
+  docker swarm leave
+
+4 For the manager to leave the swarm
+  Go to manager
+  docker swarm leave --force
+
+
+5 To generate the tokenid for a node to join as a worker
+  docker swarm join-token worker
+
+6 To generate the tokenid for a node to join as a manager
+  docker swarm join-token manager
+
+7 To promote Worker1 and make him as a manager
+  docker node promote Worker1
+
+8 To demote Worker1 again from manager to worker status
+  docker node demote Worker1
+
+
+1 Start tomcat with 5 replicas 
+  docker service create --name tomcat --replcias 5 -p 8899:8080 tomcat
+
+2 Check the nodes on which these 5 replcias are running
+  docker service ps tomcat
+
+3 Delete a tomcat container on manager
+  docker container ls
+  Capture the id of one tomcat container
+  docker rm -f containerid
+
+4 Check if all 5 replicas are still running
+  docker service ps tomcat
+
+5 Drain Worker1 from the swam
+  docker node update --availability drain Worker1
+
+6 Check if all 5 replicas are still running on manager and Worker2
+  docker service ps tomcat
+
+
+
+
+
+=============================================================
+1 Create 2 overlay networks
+  docker network create --driver overlay intelliq1
+  docker network create --driver overlay intelliq2
+
+2 To see list of networks
+  docker network ls
+
+3 Start nignx with 3 replcias on intelliq1 network
+  docker service create --name mynginx --replicas 3 -p 9988:80 
+                                            --network intelliq1 nginx
+
+4 To check if mynginx is running on intelliq1 network
+  docker service inspect mynginx --pretty
+
+5 Start tomcat with 5 replicas on the default overlaynetwork
+  docker service create --name tomcat --replicas 5 -p 8787:8080 tomcat
+
+6 Update the network on tomcat to intelliq2
+  docker service update --network-add intelliq2 tomcat
+
+7 Check if tomcat service is running on intelliq2 
+  docker service inspect tomcat --pretty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+padmagoli@hotmail.com
+aramamurthi@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

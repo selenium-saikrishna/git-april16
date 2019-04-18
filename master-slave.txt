@@ -1,0 +1,72 @@
+
+
+ansible all -m apt -a 'name=git state=present' -b  
+
+ansible all -m git -a 'repo=https://github.com/selenium-                                         saikrishna/FunctionalTesting.git dest=/tmp/newgit'
+
+
+
+Setup of Master-Slave
+==========================
+1 Create a new AWS ubuntu18 instance
+
+2 Install the same version of jave that we installed on master
+
+3 Establish passwordless ssh between master and salve
+  a) Connect to the slave machine with gitbash
+  b) sudo passwd ubuntu
+     Set an new password
+  c) sudo vim /etc/ssh/sshd_config
+     Search for "PasswordAuthentication" and change it from no to yes
+     Save and quit     Esc :wq Enter
+  d) Restart ssh
+     sudo service ssh restart
+  e) Connect to master machine using gitbash
+  f) Generate the ssh keys
+     ssh-keygen
+     The above command will create 2 keys called public key and private key
+     in the .ssh folder
+  g) ssh-copy-id ubuntu@ipaddress_of_slave
+     The above command will copy the content of the public keys into a file 
+     called authorised_keys on the slave machine.Once these keys are copied 
+     master machine can ssh to the slave machine without password.The public        keys on slave will ask a security question which will be answered by the
+     private keys on master.Once this question and answer match passwordless
+     ssh will happen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

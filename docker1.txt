@@ -1,0 +1,123 @@
+Work on docker images
+============================
+1 To download a docker image
+  docker pull imagename
+
+2 To see the list of all docker images in dockerhost
+  docker images
+  (or)
+  docker image ls
+
+3 To upload an image into docker registry
+  a) Login into docker registry
+     docker login
+     Enter username and password
+  b) docker push imagename
+
+4) To search for a docker image on hub.docker.com
+   docker search imagename
+
+5 To delete a docker image from docker host
+  docker rmi imagename
+
+6 To create a docker image from a container
+  docker commit containername/containerid   our_new_image_name
+
+7 To create a docker image from a docker file
+  docker build -t new_image_name .
+  Note . represent current working directory
+
+Working on docker containers
+================================
+8 To start a stopped container
+  docker start container_id/container_name
+
+9 To stop a running container
+  docker stop container_id/container_name
+
+10 To restart a running container
+   docker restart container_id/container_name
+   To restart after 10 seconds
+   docker restart -t 10 container_id/container_name
+
+11 To remove or delete a stopped container
+   docker rm container_id/container_name
+
+12 To remove a running/stopped container
+   docker rm -f container_id/container_name
+
+13 To stop all running containers
+   docker stop $(docker ps -aq)
+
+14 To remove all stopped container
+   docker rm $(docker ps -aq)
+
+15 To remove all running and stopped contianers
+   docker rm -f $(docker ps -aq)
+
+16 To see the list of all running containers
+   docker container ls
+
+17 To see list of all running and stopped containers
+   docker ps 
+
+18 To create a container from an image
+   docker run image_name
+   Run command options
+   ---------------------
+   --name    Used to give a name for the container
+   -it       Used to open interactive terminal in the container
+   -v        Used for attaching a volume to a container
+   --volumes-from   Used for attaching volumes that are reusable by other                     containers
+   -e        Used for passing environment variables
+   -p        Used for port mapping
+             ie it will map the port of docker container with the dockerhost port
+             Eg -p 8080:80   here 8080 is host machine port and 80 is container              port.Host machine port is called external port and container port is
+             called internal port
+   -P        Used for automatic port mapping ie the internal port of the container 
+             will be mapped with an external port of docker host which is greater
+             then 30000
+   -d        Used to run the container in detached mode as a deamon
+   --network   Used to assign a network to a container
+   -rm         Used if we want to remove the container on exit
+   --memory    Used for allocating a fixed amount of memory to container
+   --cpu        Used for allocating fioxed number of cpu's
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
