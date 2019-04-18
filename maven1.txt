@@ -1,0 +1,112 @@
+Maven is a build tool of Java.
+Maven is created by apache and it run on Apache community servers.
+All the open source communities like Mysql,Junit etc upload their
+updates API's into this maven global server.
+We connect to the maven global server,download those API's that are 
+necessary for our project and store them on a seperate server called
+maven local repository.
+All the developers connect theri projects to the maven local repository
+and perfrom the coding
+In this way the development code is stored sperately on Git and the
+artifacts necessary for coding in maven local server.
+
+This will help in protecting the code present in Git from an viruses that
+might be present in the open source API's
+
+Maven also works like a build tool where we can convert the 
+.java programs into .class files and then into an artifact in the 
+form of jar or war or ear files
+
+Configuring Maven
+=====================
+1 Download and install jdk 1.8 or jdk 1.9
+2 Open c-->Program files--->Java--->open jdk folder
+3 Copy its path
+4 Right click on This PC--->click on Properties
+5 Click on Advanced System settings
+6 Click on Environment Varaibles
+7 Go to System Varaibles--->Click on New
+8 Enter variable name as JAVA_HOME
+9 Paste the path of jdk
+10 Hightlight the path variable-->Edit
+11 Click on New--->Paste the path of jdk/bin
+12 Open https://maven.apache.org/download.cgi
+13 Goto Files section and download the bin.zip version
+14 Extract it and open it
+15 Copy its path
+16 Click on Environment varaibles--->Click on New
+17 Enter variable name as M2_HOME
+18 Paste the path of apache maven
+19 Highlight the Path variable--->Edit
+20 Click on New--->Paste the path of Apache maven/bin
+21 Ok-->ok-->ok
+
+To check if maven is installed or not
+Open cmd prompt
+mvn --version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
